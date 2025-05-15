@@ -1,7 +1,5 @@
 package tech.api.quarkus.mapper;
 
-
-import jakarta.enterprise.context.ApplicationScoped;
 import org.mapstruct.Mapper;
 import tech.api.quarkus.entity.UserEntity;
 import tech.api.quarkus.request.UserRequest;

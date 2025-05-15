@@ -1,29 +1,28 @@
 package tech.api.quarkus.response;
 
 import java.time.LocalDateTime;
-import java.util.UUID;
 
 public class UserResponse {
 
-    private UUID id;
+    private Long id;
     private String name;
     private String email;
     private LocalDateTime created_in;
 
     public UserResponse(){}
 
-    public UserResponse(UUID id, String name, String email, LocalDateTime created_in){
+    public UserResponse(Long id, String name, String email, LocalDateTime created_in){
         this.id = id;
         this.name = name;
         this.email = email;
         this.created_in = created_in;
     }
 
-    public UUID getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

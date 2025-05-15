@@ -4,22 +4,22 @@ public class UserRequest {
 
     private String name;
     private String email;
-    private String senha;
+    private String password;
 
     public UserRequest(){}
 
-    public UserRequest(String name, String email, String senha){
+    public UserRequest(String name, String email, String password){
         this.name = name;
         this.email = email;
-        this.senha = senha;
+        this.password = password;
     }
 
-    public String getSenha() {
-        return senha;
+    public String getSPassword() {
+        return password;
     }
 
-    public void setSenha(String senha) {
-        this.senha = senha;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getName() {
