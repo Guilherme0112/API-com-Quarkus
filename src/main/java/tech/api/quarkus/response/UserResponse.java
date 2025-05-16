@@ -1,5 +1,7 @@
 package tech.api.quarkus.response;
 
+import tech.api.quarkus.enums.RoleUser;
+
 import java.time.LocalDateTime;
 
 public class UserResponse {
@@ -7,14 +9,18 @@ public class UserResponse {
     private Long id;
     private String name;
     private String email;
+    private RoleUser role;
+    private boolean isActive;
     private LocalDateTime created_in;
 
     public UserResponse(){}
 
-    public UserResponse(Long id, String name, String email, LocalDateTime created_in){
+    public UserResponse(Long id, String name, String email, RoleUser role, boolean isActive, LocalDateTime created_in){
         this.id = id;
         this.name = name;
         this.email = email;
+        this.role = role;
+        this.isActive = isActive;
         this.created_in = created_in;
     }
 
@@ -49,4 +55,12 @@ public class UserResponse {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    public RoleUser getRole() { return role; }
+
+    public void setRole(RoleUser role) { this.role = role; }
+
+    public boolean isActive() { return isActive; }
+
+    public void setActive(boolean active) { isActive = active; }
 }

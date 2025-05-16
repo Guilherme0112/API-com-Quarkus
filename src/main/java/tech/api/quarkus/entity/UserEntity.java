@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntity;
 import jakarta.validation.constraints.*;
+import tech.api.quarkus.enums.RoleUser;
 
 import java.time.LocalDateTime;
 import java.time.ZoneId;
@@ -23,6 +24,10 @@ public class UserEntity extends PanacheEntity{
     @NotNull(message = "A senha é obrigatória")
     @Size(min = 8, max = 14, message = "A senha deve ter entre 8 e 14 caracteres")
     private String password;
+
+    private boolean isActive = false;
+
+    private RoleUser role;
 
     @Column(nullable = false, updatable = false)
     private LocalDateTime created_in = LocalDateTime.now(ZoneId.of("America/Sao_Paulo"));
@@ -57,5 +62,21 @@ public class UserEntity extends PanacheEntity{
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public boolean isActive() {
+        return isActive;
+    }
+
+    public void setActive(boolean active) {
+        isActive = active;
+    }
+
+    public RoleUser getRole() {
+        return role;
+    }
+
+    public void setRole(RoleUser role) {
+        this.role = role;
     }
 }

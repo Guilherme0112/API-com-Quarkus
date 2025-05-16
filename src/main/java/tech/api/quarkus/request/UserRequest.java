@@ -14,7 +14,7 @@ public class UserRequest {
         this.password = password;
     }
 
-    public String getSPassword() {
+    public String getPassword() {
         return password;
     }
 

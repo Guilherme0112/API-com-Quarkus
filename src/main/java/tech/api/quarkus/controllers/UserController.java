@@ -8,6 +8,9 @@ import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import tech.api.quarkus.entity.UserEntity;
 import tech.api.quarkus.mapper.UserMapper;
+import tech.api.quarkus.request.UserRequest;
+import tech.api.quarkus.response.UserResponse;
+import tech.api.quarkus.services.UserService;
 
 @Path("/users")
 @Produces(MediaType.APPLICATION_JSON)
@@ -16,6 +19,8 @@ public class UserController {
 
     @Inject
     UserMapper userMapper;
+    @Inject
+    UserService userService;
 
     @GET
     @Path("{id}")
@@ -25,9 +30,9 @@ public class UserController {
 
     @POST
     @Transactional
-    public Response createUser(@Valid UserEntity userEntity){
-        UserEntity.persist(userEntity);
-        return Response.ok(userMapper.toResponse(userEntity)).build();
+    public Response createUser(@Valid UserEntity request){
+        UserResponse response = userService.save(request);
+        return Response.ok(response).build();
     }
 
     @PUT
